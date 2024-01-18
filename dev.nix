@@ -1,9 +1,8 @@
-{pkgs, ...}: {
+{pkgs}: {
   channel = "stable-23.05"; # "stable-23.05" or "unstable"
   packages = [
     pkgs.nodejs
-    pkgs.yarn
-    pkgs.nodePackages.pnpm
+    PM_NIX_PACKAGE
   ];
 
   # Sets environment variables in the workspace

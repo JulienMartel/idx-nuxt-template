@@ -25,5 +25,15 @@
       chmod -R +w "$out"
 
       sed -i "s/PACKAGE_MANAGER/${packageManager}/g" "$out"/.idx/dev.nix
+
+      sed -i "s/PM_NIX_PACKAGE/${
+        if packageManager == "npm" then
+          ""
+        else if packageManager == "pnpm" then
+          "pkgs.nodePackages.pnpm"
+        else
+          "pkgs.yarn"
+      }/g" "$out"/.idx/dev.nix
+
     '';
 }
