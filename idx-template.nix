@@ -3,6 +3,7 @@
     packages = [
       pkgs.nodejs
       pkgs.git
+      pkgs.bun
     ];
 
     # Available options as of 1/17/2024
@@ -13,8 +14,7 @@
     # /nix/store/mvr5wczap3ga80iq548n2griy8kx9ksx-idx-template/bin/idx-template ~/Monospace/workspace/nix_templates/nuxt --output-dir ~ --workspace-name foo -a '{"packageManager": "yarn", "install": true}'
 
     bootstrap = ''
-
-      npx nuxi@latest -y init "$out" \
+      bunx nuxi@latest -y init "$out" \
         --package-manager ${packageManager} \
         --no-install \
         --git-init \
@@ -34,6 +34,5 @@
         else
           "pkgs.yarn"
       }/g" "$out"/.idx/dev.nix
-
     '';
 }
