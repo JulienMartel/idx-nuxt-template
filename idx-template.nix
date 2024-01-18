@@ -31,6 +31,8 @@
           ""
         else if packageManager == "pnpm" then
           "pkgs.nodePackages.pnpm"
+        else if packageManager == "bun" then
+          "pkgs.bun"
         else
           "pkgs.yarn"
       }/g" "$out"/.idx/dev.nix
