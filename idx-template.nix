@@ -20,12 +20,9 @@
         --no-install \
         --git-init \
         --force
-      
-      chmod -R +w "$out"
-      git init "$out"
 
       mkdir "$out"/.idx
       cp ${./dev.nix} "$out"/.idx/dev.nix
-      chmod -R +w "$out"/.idx/
+      chmod -R +w "$out"
     '';
 }
