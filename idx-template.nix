@@ -13,7 +13,7 @@
     # /nix/store/mvr5wczap3ga80iq548n2griy8kx9ksx-idx-template/bin/idx-template ~/Monospace/workspace/nix_templates/nuxt --output-dir ~ --workspace-name foo -a '{"packageManager": "yarn", "install": true}'
 
     bootstrap = ''
-      export PACKAGE_MANAGER=${packageManager}
+      sed -i "s/PACKAGE_MANAGER/${packageManager}/g" ${./dev.nix}
 
       npx nuxi@latest -y init "$out" \
         --package-manager ${packageManager} \
